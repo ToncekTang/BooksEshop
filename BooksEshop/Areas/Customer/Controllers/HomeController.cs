@@ -1,9 +1,10 @@
-using BooksEshop.Models;
+using Eshop.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
-namespace BooksEshop.Controllers
+namespace BooksEshop.Areas.Customer.Controllers
 {
+    [Area("Customer")]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
