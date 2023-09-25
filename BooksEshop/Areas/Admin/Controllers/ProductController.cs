@@ -2,12 +2,15 @@
 using Eshop.DataAccess.Repository.IRepository;
 using Eshop.Models;
 using Eshop.Models.ViewModels;
+using Eshop.Utility;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace BooksEshop.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = SD.Role_Admin)]
     public class ProductController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;
