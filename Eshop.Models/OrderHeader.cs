@@ -29,8 +29,9 @@ namespace Eshop.Models
         public DateTime PaymentDate { get; set; }
         public DateOnly PaymentDueDate { get; set; }
 
-        //Unique ID from Stripe payment
-        public String? PaymentIntentId { get; set; }
+        public string? SessionId { get; set; }
+        //Unique ID from Stripe payment(if session is successful)
+        public string? PaymentIntentId { get; set; }
 
         [Required]
         public string PhoneNumber { get; set; }

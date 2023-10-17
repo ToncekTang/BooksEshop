@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Eshop.Models.ViewModels
 {
-    public class ShoppingCartVM
-    {
-        public IEnumerable<ShoppingCart> ShoppingCartList { get; set; }
+	public class OrderVM
+	{
         public OrderHeader OrderHeader { get; set; }
+		public IEnumerable<OrderDetail> OrderDetail { get; set; }
     }
 }

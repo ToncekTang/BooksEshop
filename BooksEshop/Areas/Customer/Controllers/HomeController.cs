@@ -1,6 +1,8 @@
 using Eshop.DataAccess.Repository.IRepository;
 using Eshop.Models;
+using Eshop.Utility;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -22,6 +24,8 @@ namespace BooksEshop.Areas.Customer.Controllers
 
         public IActionResult Index()
         {
+
+            
             IEnumerable<Product> productList = _unitOfWork.Product.GetAll(includeProperties:"Category");
             return View(productList);
         }
@@ -55,15 +59,18 @@ namespace BooksEshop.Areas.Customer.Controllers
                 //shopping cart exists
                 cartFromdb.Count += shoppingCart.Count;
                 _unitOfWork.ShoppingCart.Update(cartFromdb);
+                _unitOfWork.Save();
             }
             else
             {
                 //add new
                 _unitOfWork.ShoppingCart.Add(shoppingCart);
+                _unitOfWork.Save();
+                HttpContext.Session.SetInt32(SD.SessionCart, _unitOfWork.ShoppingCart.GetAll(u => u.ApplicationUserId == userId).Count());
             }
             TempData["success"] = "Cart updated successfully";
 
-            _unitOfWork.Save();
+            
             return RedirectToAction(nameof(Index));
         }
 
