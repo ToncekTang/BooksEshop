@@ -1,6 +1,6 @@
 /* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
-
+ 
 .divider-text:before,
 .divider-text:after {
     color: white;
@@ -67,7 +67,7 @@ html {
 .text-warning {
     color: #BD7418 !important;
 }
-
+/*
 .text-secondary {
     color: #425F4B !important;
 }
@@ -91,19 +91,20 @@ html {
 bg-success {
     background-color: #4b7147 !important;
 }
+*/
 
-
-
+/*
 .card {
     border-color: #425F4B !important;
 }
+*/
 
 
 
 /* btn-outline-primary */
 
 
-
+ 
 .btn-outline-primary {
     color: #192E2F;
     border-color: #192E2F;
@@ -239,13 +240,13 @@ bg-success {
 /* btn-primary */
 
 
-
+/* 
 .btn-primary {
     color: #fff;
     background-color: #192E2F;
     border-color: #192E2F;
 }
-
+*/
 
 
     .btn-primary:hover {
